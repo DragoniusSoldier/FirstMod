@@ -1,5 +1,6 @@
 package com.dragonius.examplemod;
 
+import com.dragonius.examplemod.Item.Moditems;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.Registries;
@@ -48,6 +49,8 @@ public class ExampleMod
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
 
+        Moditems.register(modEventBus);
+
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
 
@@ -61,9 +64,10 @@ public class ExampleMod
     }
 
     // Add the example block item to the building blocks tab
-    private void addCreative(BuildCreativeModeTabContentsEvent event)
-    {
-
+    private void addCreative(BuildCreativeModeTabContentsEvent event) {
+        if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+            event.accept(Moditems.Abysalheart);
+        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
