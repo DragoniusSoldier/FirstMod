@@ -11,7 +11,7 @@ public class Moditems {
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, ExampleMod.MOD_ID);
 
-public static final RegistryObject<Item> Abysalheart = ITEMS.register("Abysal Heart",
+public static final RegistryObject<Item> Abysalheart = ITEMS.register("abysalheart",
             () -> new Item(new Item.Properties()));
 
 
