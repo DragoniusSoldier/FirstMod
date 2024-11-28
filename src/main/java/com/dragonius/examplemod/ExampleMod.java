@@ -37,7 +37,6 @@ public class ExampleMod
         MinecraftForge.EVENT_BUS.register(this);
 
 
-
         Moditems.register(modEventBus);
 
         // Register the item to a creative tab
